@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorBlackLight"
+    tools:context=".ui.screens.mars.ShowMarsImageFragment">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:text="Image1"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/superSmallMargin"
+        android:textSize="@dimen/smallTextSize"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/imageViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/extraBigMargin"
+        android:layout_marginBottom="@dimen/extraBigMargin"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

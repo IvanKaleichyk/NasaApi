@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.screens.choose.MainMenuFragment">
+
+    <VideoView
+        android:id="@+id/video"
+        android:layout_width="400dp"
+        android:layout_height="700dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+    <Button
+        android:id="@+id/marsImages"
+        style="@style/mainBtnStyle"
+        android:text="@string/mars_rover_photos"
+        android:layout_margin="@dimen/extraSmallMargin"/>
+
+    <Button
+        android:id="@+id/nasaImages"
+        style="@style/mainBtnStyle"
+        android:text="@string/NASA_Images"
+        android:layout_margin="@dimen/extraSmallMargin"/>
+
+    <Button
+        android:id="@+id/nasaVideo"
+        style="@style/mainBtnStyle"
+        android:text="@string/NASA_Video"
+        android:layout_margin="@dimen/extraSmallMargin"/>
+
+    <Button
+        android:id="@+id/earthImages"
+        style="@style/mainBtnStyle"
+        android:text="@string/earth_image"
+        android:layout_margin="@dimen/extraSmallMargin"/>
+
+    </LinearLayout>
+
+</FrameLayout>

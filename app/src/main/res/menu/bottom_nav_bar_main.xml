@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    <item-->
+<!--        android:id="@+id/image"-->
+<!--        android:icon="@drawable/image_icon_32"-->
+<!--        android:title="@string/images"-->
+<!--        app:showAsAction="ifRoom" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/music"-->
+<!--        android:icon="@drawable/music_icon_32"-->
+<!--        android:title="@string/music"-->
+<!--        app:showAsAction="ifRoom" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/video"-->
+<!--        android:icon="@drawable/video_icon_32"-->
+<!--        android:title="@string/video"-->
+<!--        app:showAsAction="ifRoom" />-->
+
+</menu>

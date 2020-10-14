@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMainBackground"
+    tools:context=".ui.screens.nasaImages.ChooseNasaImageFragment">
+
+    <ImageView
+        android:id="@+id/searchImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mainPadding"
+        android:src="@drawable/search_icon_32"
+        app:layout_constraintBottom_toBottomOf="@+id/switchAll"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/switchAll" />
+
+    <Button
+        android:id="@+id/switchVideo"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_btn_switch_dont_select"
+        android:text="@string/video"
+        android:textColor="@color/colorMain"
+        android:textSize="@dimen/superSmallTextSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/switchImage"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_btn_switch_dont_select"
+        android:text="@string/image"
+        android:textColor="@color/colorMain"
+        android:textSize="@dimen/superSmallTextSize"
+        app:layout_constraintEnd_toStartOf="@+id/switchVideo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/switchAll"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_btn_switch_select"
+        android:text="@string/all"
+        android:textSize="@dimen/superSmallTextSize"
+        app:layout_constraintEnd_toStartOf="@+id/switchImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="@dimen/mainPadding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchImage">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/mainPadding" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.github.rahatarmanahmed.cpv.CircularProgressView
+        android:id="@+id/progressBar"
+        android:layout_width="@dimen/progress_bar"
+        android:layout_height="@dimen/progress_bar"
+        android:visibility="gone"
+        app:cpv_animAutostart="true"
+        app:cpv_color="@color/colorMain"
+        app:cpv_indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/LL_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/ic_astronaut" />
+
+        <TextView
+            android:id="@+id/textError"
+            style="@style/titleMainTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/extraBigMargin"
+            android:layout_marginEnd="@dimen/extraBigMargin"
+            android:text="Error 404"
+            android:textSize="@dimen/bigTextSize" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

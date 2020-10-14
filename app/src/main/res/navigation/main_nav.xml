@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/loadingFragment">
+    <fragment
+        android:id="@+id/loadingFragment"
+        android:name="com.koleychik.nasaapi.ui.screens.choose.LoadingFragment"
+        android:label="fragment_loading"
+        tools:layout="@layout/fragment_loading" >
+        <action
+            android:id="@+id/action_loadingFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="com.koleychik.nasaapi.ui.screens.choose.MainMenuFragment"
+        android:label="fragment_main_menu"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/action_mainMenuFragment_to_marsFragment"
+            app:destination="@id/marsFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_earthImagesFragment"
+            app:destination="@id/earthImagesFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_chooseNasaImageFragment"
+            app:destination="@id/chooseNasaImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/marsFragment"
+        android:name="com.koleychik.nasaapi.ui.screens.mars.MarsSelectCameraFragment"
+        android:label="fragment_mars"
+        tools:layout="@layout/fragment_mars_select_camera" >
+        <action
+            android:id="@+id/action_marsFragment_to_marsImagesFragment"
+            app:destination="@id/marsImagesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/earthImagesFragment"
+        android:name="com.koleychik.nasaapi.ui.screens.earthImages.EarthImagesFragment"
+        android:label="fragment_earth_images"
+        tools:layout="@layout/fragment_earth_images" />
+    <fragment
+        android:id="@+id/marsImagesFragment"
+        android:name="com.koleychik.nasaapi.ui.screens.mars.MarsImagesFragment"
+        android:label="fragment_mars_images"
+        tools:layout="@layout/fragment_mars_images" >
+        <action
+            android:id="@+id/action_marsImagesFragment_to_showImageFragment"
+            app:destination="@id/showImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showImageFragment"
+        android:name="com.koleychik.nasaapi.ui.screens.mars.ShowMarsImageFragment"
+        android:label="fragment_show_image"
+        tools:layout="@layout/fragment_show_image">
+        <argument
+            android:name="showMarsImage"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseNasaImageFragment"
+        android:name="com.koleychik.nasaapi.ui.screens.nasaImages.ChooseNasaImageFragment"
+        android:label="fragment_choose_image"
+        tools:layout="@layout/fragment_choose_image" >
+        <action
+            android:id="@+id/action_chooseNasaImageFragment_to_showNasaLibraryFragment"
+            app:destination="@id/showNasaLibraryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showNasaLibraryFragment"
+        android:name="com.koleychik.nasaapi.ui.screens.nasaImages.ShowNasaLibraryFragment"
+        android:label="fragment_show_nasa_library"
+        tools:layout="@layout/fragment_show_nasa_library" />
+</navigation>

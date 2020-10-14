@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    TEXT SIZE-->
+    <dimen name="mainTextSize">24sp</dimen>
+    <dimen name="bigTextSize">32sp</dimen>
+    <dimen name="extraBigTextSize">40sp</dimen>
+    <dimen name="smallTextSize">20sp</dimen>
+    <dimen name="extraSmallTextSize">16sp</dimen>
+    <dimen name="superSmallTextSize">10sp</dimen>
+
+<!--  Margin  -->
+    <dimen name="mainMargin">24dp</dimen>
+    <dimen name="bigMargin">32dp</dimen>
+    <dimen name="extraBigMargin">40dp</dimen>
+    <dimen name="smallMargin">20dp</dimen>
+    <dimen name="extraSmallMargin">16dp</dimen>
+    <dimen name="superSmallMargin">10dp</dimen>
+
+    <!--  PADDING  -->
+    <dimen name="mainPadding">10dp</dimen>
+    <dimen name="bigPadding">16dp</dimen>
+    <dimen name="extraBigPadding">20dp</dimen>
+    <dimen name="smallPadding">7dp</dimen>
+    <dimen name="extraSmallPadding">5dp</dimen>
+    <dimen name="superSmallPadding">3dp</dimen>
+    <dimen name="main_radius">30dp</dimen>
+    <dimen name="numberPickerHeight">100dp</dimen>
+    <dimen name="progress_bar">40dp</dimen>
+    <dimen name="small_radius">15dp</dimen>
+
+</resources>

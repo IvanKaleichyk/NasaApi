@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Nasa Api</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mars_rover_photos">Mars Rover Photos</string>
+    <string name="NASA_Images">NASA Image</string>
+    <string name="NASA_Video">NASA Viedo</string>
+    <string name="earth_image">Earth Image</string>
+    <string name="day">Day</string>
+    <string name="month">Month</string>
+    <string name="year">Year</string>
+    <string name="cannotFoundImages">Cannot found images</string>
+    <string name="error">Error</string>
+    <string name="error_404">Error 404</string>
+    <string name="error_400">Error 400</string>
+    <string name="error_403">Error 403</string>
+    <string name="error_500">Error 500</string>
+    <string name="error_502">Error 502</string>
+    <string name="error_503">Error 503</string>
+    <string name="video">Video</string>
+    <string name="image">Image</string>
+    <string name="all">All</string>
+    <string name="search">Search</string>
+</resources>
