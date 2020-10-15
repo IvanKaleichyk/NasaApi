@@ -2,7 +2,6 @@ package com.koleychik.nasaapi.models.mainModels
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import com.koleychik.nasaapi.utils.getImageUri
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

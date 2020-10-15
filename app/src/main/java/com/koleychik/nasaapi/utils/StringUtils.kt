@@ -6,60 +6,49 @@ import java.lang.StringBuilder
 class StringUtils {
 
     companion object {
-        fun maxLength(text: String, maxLength: Int): String {
-            if (text.length <= maxLength) return text
+        fun getDateString(dateModel: DateModel, divide: String): String {
 
-            val arr = text.toCharArray()
-            val stringBuilder = StringBuilder()
-            stringBuilder.append(arr)
-            stringBuilder.append('.')
-            stringBuilder.append('.')
-            stringBuilder.append('.')
+            var month = dateModel.month
+            if (month.length == 1) month = "0$month"
 
-            return stringBuilder.toString()
-        }
-
-        fun getDateString(dateModel: DateModel, divide: String) : String{
             val sb = StringBuilder()
             sb.append(dateModel.year).append(divide)
-            sb.append(dateModel.month).append(divide)
-            sb.append(dateModel.day)
-            return sb.toString()
-        }
-
-        fun getDateString(time: Long?, divide: String) : String{
-            val dateModel = GetDateModel.get(time)
-            val sb = StringBuilder()
-            sb.append(dateModel.year).append(divide)
-            sb.append(dateModel.month).append(divide)
-            sb.append(dateModel.day)
-            return sb.toString()
-        }
-
-        fun getDateString(year: String, month : String, day : String, divide: String) : String{
-            val sb = StringBuilder()
-            sb.append(year).append(divide)
             sb.append(month).append(divide)
-            sb.append(day)
+            sb.append(dateModel.day)
             return sb.toString()
         }
 
-//        fun getDateStringUrl(dateModel: DateModel) : String{
-//            val sb = StringBuilder()
-//            sb.append(dateModel.year).append("/")
-//            sb.append(dateModel.month).append("/")
-//            sb.append(dateModel.day)
-//            return sb.toString()
-//        }
+        fun saveSameSymbols(string: String, value: Int): String {
+            val sb = StringBuilder(string)
 
-//        fun getDateString(year: Any, month : Any, day : Any) : String{
-//            val sb = StringBuilder()
-//            sb.append(year as String).append("-")
-//            sb.append(month as String).append("-")
-//            sb.append(day as String)
-//            return sb.toString()
-//        }
+            if (sb.length - value < 0) return ""
 
+            sb.deleteRange(value, sb.length)
+            return sb.toString()
+        }
+
+        fun setHttpToHttps(path: String): String {
+            val arrPath = path.split(":")
+            if (arrPath[0].length > 4) return path
+
+            val sb = StringBuilder(path)
+
+            val res = StringBuilder(arrPath[0] + "s")
+            val start = getFirst(path, ':')
+
+
+            for (i in (start until sb.length)) {
+                res.append(sb[i])
+            }
+            return res.toString()
+        }
+
+        private fun getFirst(string: String, value: Char): Int {
+            val sb = StringBuilder(string)
+            for (i in (sb.indices)) {
+                if (sb[i] == value) return i
+            }
+            return 0
+        }
     }
-
 }

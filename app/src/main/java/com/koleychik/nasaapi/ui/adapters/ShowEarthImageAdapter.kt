@@ -12,34 +12,35 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.koleychik.nasaapi.R
-import com.koleychik.nasaapi.models.mainModels.MarsImageModel
+import com.koleychik.nasaapi.models.mainModels.EarthImageModel
 import kotlinx.android.synthetic.main.item_rv_show_mars_image.view.*
 
-class MarsShowImageAdapter : RecyclerView.Adapter<MarsShowImageAdapter.MainViewHolder>() {
+class ShowEarthImageAdapter : RecyclerView.Adapter<ShowEarthImageAdapter.MainViewHolder>() {
 
-    private val sortedList: SortedList<MarsImageModel>
+    private val sortedList: SortedList<EarthImageModel>
+
 
     init {
         sortedList = SortedList(
-            MarsImageModel::class.java,
-            object : SortedListAdapterCallback<MarsImageModel>(this) {
-                override fun compare(o1: MarsImageModel, o2: MarsImageModel): Int = 1
+            EarthImageModel::class.java,
+            object : SortedListAdapterCallback<EarthImageModel>(this) {
+                override fun compare(o1: EarthImageModel, o2: EarthImageModel): Int = 1
 
                 override fun areContentsTheSame(
-                    oldItem: MarsImageModel,
-                    newItem: MarsImageModel
+                    oldItem: EarthImageModel,
+                    newItem: EarthImageModel
                 ): Boolean =
-                    oldItem.id == newItem.id
+                    oldItem.identifier == newItem.identifier
 
                 override fun areItemsTheSame(
-                    item1: MarsImageModel,
-                    item2: MarsImageModel
+                    item1: EarthImageModel,
+                    item2: EarthImageModel
                 ): Boolean =
                     item1 == item2
             })
     }
 
-    fun submitList(newList: List<MarsImageModel>) {
+    fun submitList(newList: List<EarthImageModel>) {
         sortedList.clear()
         sortedList.addAll(newList)
     }
@@ -64,15 +65,15 @@ class MarsShowImageAdapter : RecyclerView.Adapter<MarsShowImageAdapter.MainViewH
 
     inner class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(model: MarsImageModel) {
+        fun bind(model: EarthImageModel) {
             loadImg(model)
 
         }
 
-        private fun loadImg(model: MarsImageModel) {
+        private fun loadImg(model: EarthImageModel) {
             Glide.with(itemView.context)
                 .asBitmap()
-                .load(model.img_src)
+                .load(model.image)
                 .into(object : CustomTarget<Bitmap>() {
                     override fun onResourceReady(
                         resource: Bitmap,

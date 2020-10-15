@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SortedList
 import androidx.recyclerview.widget.SortedListAdapterCallback
 import coil.load
-import com.bumptech.glide.Glide
 import com.koleychik.nasaapi.R
 import com.koleychik.nasaapi.models.mainModels.MarsImageModel
 import com.koleychik.nasaapi.utils.Constants
@@ -46,10 +45,6 @@ class MarsImageAdapter : RecyclerView.Adapter<MarsImageAdapter.MainViewHolder>()
         sortedList.addAll(newList)
     }
 
-    fun addToList(value: MarsImageModel) {
-        sortedList.add(value)
-    }
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -77,8 +72,9 @@ class MarsImageAdapter : RecyclerView.Adapter<MarsImageAdapter.MainViewHolder>()
         fun bind(model: MarsImageModel) {
             Log.d(Constants.TAG, "bind model.earth_date = ${model.earth_date}")
             itemView.description.text = model.earth_date
-//            Glide.with(itemView.context).load(model.img_src).into(itemView.image)
-            itemView.image.load(model.img_src)
+            itemView.image.load(model.img_src){
+                placeholder(R.drawable.image_placeholder)
+            }
 
             Log.d(Constants.TAG, "model.img_src = ${model.img_src}")
 
@@ -93,7 +89,7 @@ class MarsImageAdapter : RecyclerView.Adapter<MarsImageAdapter.MainViewHolder>()
 
             val bundle = Bundle()
             bundle.putParcelableArrayList(Constants.MARS_IMAGE_LIST_BUNDLE, getArrayList())
-            bundle.putString(Constants.IMAGE_BUNDLE, model.img_src)
+            bundle.putInt(Constants.MARS_IMAGE_ID_SELECT_BUNDLE, model.id)
             Navigation.findNavController(itemView).navigate(
                 R.id.action_marsImagesFragment_to_showImageFragment,
                 bundle,

@@ -16,7 +16,6 @@ import com.koleychik.nasaapi.ui.states.EarthImagesState
 import com.koleychik.nasaapi.ui.viewModels.EarthImagesViewModel
 import com.koleychik.nasaapi.utils.*
 import kotlinx.android.synthetic.main.fragment_mars_images.view.*
-import kotlinx.android.synthetic.main.fragment_show_image.view.*
 
 class EarthImagesFragment : Fragment() {
 
@@ -24,7 +23,7 @@ class EarthImagesFragment : Fragment() {
 
     private val adapter = EarthImagesAdapter()
 
-    private lateinit var sharedPreferenceUtils : SharedPreferenceUtils
+    private lateinit var sharedPreferenceUtils: SharedPreferenceUtils
 
     private lateinit var chooseDateDialog: ChooseDateDialog
 
@@ -48,9 +47,9 @@ class EarthImagesFragment : Fragment() {
         createSwipeToRefresh()
     }
 
-    private fun makeOnCLickListener(){
-        val onClickListener = View.OnClickListener{
-            when(it.id){
+    private fun makeOnCLickListener() {
+        val onClickListener = View.OnClickListener {
+            when (it.id) {
                 R.id.header -> {
                     val dateModel = viewModel.dateModel.value!!
                     chooseDateDialog.show(
@@ -74,7 +73,7 @@ class EarthImagesFragment : Fragment() {
             } else viewModel.state.value = EarthImagesState.Show(it)
         })
         viewModel.dateModel.observe(viewLifecycleOwner, {
-            viewModel.state.value = EarthImagesState.Loading
+            if (it != null) requireView().header.text = StringUtils.getDateString(it, ".")
         })
     }
 
@@ -83,7 +82,7 @@ class EarthImagesFragment : Fragment() {
             is EarthImagesState.Loading -> {
                 requireView().rv.visibility = View.GONE
                 requireView().progressBar.visibility = View.GONE
-                requireView().LL_error.visibility = View.VISIBLE
+                requireView().LL_error.visibility = View.GONE
                 requireView().progressBar.visibility = View.VISIBLE
                 searching()
             }
@@ -111,14 +110,14 @@ class EarthImagesFragment : Fragment() {
 
     private fun getDate() {
         if (viewModel.dateModel.value == null) {
-            val textShared = sharedPreferenceUtils.getString(Constants.DATA_MARS_IMAGES)
+            val textShared = sharedPreferenceUtils.getString(Constants.DATA_EARTH_IMAGES)
             if (textShared == null) viewModel.dateModel.value = GetDateModel.get2015()
             else viewModel.dateModel.value = GetDateModel.getDateModelFromString(textShared, ".")
         }
     }
 
     private fun searching() {
-        viewModel.searching(StringUtils.getDateString(viewModel.dateModel.value!!, "/"))
+        viewModel.searching(StringUtils.getDateString(viewModel.dateModel.value!!, "-"))
     }
 
     private fun createChooseDateCallback() = object : ChooseDateCallback {
@@ -131,8 +130,8 @@ class EarthImagesFragment : Fragment() {
     override fun onStop() {
         super.onStop()
         sharedPreferenceUtils.saveString(
-            key = Constants.DATA_MARS_IMAGES,
-            value = requireView().title.text.toString()
+            key = Constants.DATA_EARTH_IMAGES,
+            value = StringUtils.getDateString(viewModel.dateModel.value!!, ".")
         )
     }
 

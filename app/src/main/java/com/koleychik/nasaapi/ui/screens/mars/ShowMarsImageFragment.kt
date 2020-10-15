@@ -3,7 +3,6 @@ package com.koleychik.nasaapi.ui.screens.mars
 
 import android.os.Bundle
 import android.transition.TransitionInflater
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,54 +21,28 @@ class ShowMarsImageFragment : Fragment() {
 
     private var idSelect = 0
 
-    private var idShowView = 0
-
-//    private lateinit var adapter: ShowMarsImageViewPagerAdapter
     private val adapter = MarsShowImageAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        sharedElementEnterTransition =
-//            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+
         return inflater.inflate(R.layout.fragment_show_image, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        requireView().title.visibility = View.GONE
-//        ViewCompat.setTransitionName(requireView().imageViewPager, "transImg")
+        ViewCompat.setTransitionName(requireView().imageViewPager, Constants.IMAGE_TRANSITION)
         tryGetArgs()
 
-        if (list.isEmpty()) Log.d(Constants.TAG, "list is empty")
-        else Log.d(Constants.TAG, "list[0].earth_date = ${list[0].earth_date}")
-
         makeViewPager()
-        subscribe()
     }
 
     private fun makeViewPager() {
-//        requireView().imageViewPager.apply {
-//            this.adapter = adapter
-//            currentItem = getPosition()
-//        }
         requireView().imageViewPager.adapter = adapter
         requireView().imageViewPager.currentItem = getPosition()
-    }
-
-    private fun subscribe() {
-//        adapter.title.observe(viewLifecycleOwner, {
-//            if (it != null) requireView().title.text = it
-//        })
-//        adapter.isBind.observe(viewLifecycleOwner, {
-//            if (it){
-//                if (requireView().imageViewPager.currentItem != idShowView){
-//                    idShowView = requireView().imageViewPager.currentItem
-////                    requireView().title.text = list[idShowView].earth_date
-//                }
-//            }
-//        })
     }
 
     private fun tryGetList(): List<MarsImageModel> {

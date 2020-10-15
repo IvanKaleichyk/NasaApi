@@ -7,6 +7,7 @@ import com.koleychik.nasaapi.models.mainModels.EarthImageModel
 import com.koleychik.nasaapi.repositories.EarthImageRepository
 import com.koleychik.nasaapi.ui.states.EarthImagesState
 import com.koleychik.nasaapi.utils.errorResponse
+import com.koleychik.nasaapi.utils.getImageUri
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -28,6 +29,7 @@ class EarthImagesViewModel: ViewModel() {
             if (response.isSuccessful) {
                 var newList = response.body()
                 if (newList == null) newList = listOf()
+                newList.forEach { it.image = getImageUri(it.date, it.image) }
                 list.value = newList
             }
             else{

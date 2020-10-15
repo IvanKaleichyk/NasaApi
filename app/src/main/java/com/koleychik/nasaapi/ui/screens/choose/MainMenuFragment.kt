@@ -44,8 +44,6 @@ class MainMenuFragment : Fragment() {
         }
 
         requireView().marsImages.setOnClickListener(onClickListener)
-        requireView().nasaImages.setOnClickListener(onClickListener)
-        requireView().nasaVideo.setOnClickListener(onClickListener)
         requireView().earthImages.setOnClickListener(onClickListener)
 
     }

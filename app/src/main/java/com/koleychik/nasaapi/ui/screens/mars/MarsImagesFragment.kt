@@ -20,7 +20,6 @@ import com.koleychik.nasaapi.utils.GetDateModel
 import com.koleychik.nasaapi.utils.SharedPreferenceUtils
 import com.koleychik.nasaapi.utils.StringUtils
 import kotlinx.android.synthetic.main.fragment_mars_images.view.*
-import kotlinx.android.synthetic.main.fragment_show_image.view.*
 
 class MarsImagesFragment : Fragment() {
 
@@ -84,6 +83,8 @@ class MarsImagesFragment : Fragment() {
                 requireView().textError.text = requireContext().getString(state.resText)
             }
             is MarsImagesState.Show -> {
+                for (i in state.list) i.img_src = StringUtils.setHttpToHttps(i.img_src)
+
                 requireView().rv.visibility = View.VISIBLE
                 requireView().progressBar.visibility = View.GONE
                 requireView().LL_error.visibility = View.GONE
@@ -109,6 +110,12 @@ class MarsImagesFragment : Fragment() {
     private fun makeRv() {
         requireView().rv.layoutManager = GridLayoutManager(requireContext(), 2)
         requireView().rv.adapter = adapter
+
+        postponeEnterTransition()
+        requireView().viewTreeObserver.addOnPreDrawListener {
+            startPostponedEnterTransition()
+            true
+        }
     }
 
     private fun makeOnCLickListener() {
@@ -158,7 +165,7 @@ class MarsImagesFragment : Fragment() {
         super.onStop()
         sharedPreferenceUtils.saveString(
             key = Constants.DATA_MARS_IMAGES,
-            value = requireView().title.text.toString()
+            value = StringUtils.getDateString(viewModel.dateModel.value!!, ".")
         )
     }
 }

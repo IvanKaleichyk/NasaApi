@@ -2,13 +2,13 @@ package com.koleychik.nasaapi.utils
 
 import com.koleychik.nasaapi.R
 
-fun errorResponse(code : Int) : Int{
+fun errorResponse(code: Int): Int {
 
 //    return "error $code"
 
-    when(code){
+    when (code) {
         400 -> return R.string.error_400
-        403 ->return R.string.error_403
+        403 -> return R.string.error_403
         404 -> return R.string.error_404
 
         500 -> return R.string.error_500

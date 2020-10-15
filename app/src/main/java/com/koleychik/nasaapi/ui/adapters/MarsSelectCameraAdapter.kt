@@ -38,7 +38,7 @@ class MarsSelectCameraAdapter : RecyclerView.Adapter<MarsSelectCameraAdapter.Mai
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): MarsSelectCameraAdapter.MainViewHolder {
+    ): MainViewHolder {
         return MainViewHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_rv_text, parent, false)

@@ -8,6 +8,7 @@ public class Constants {
     //    SHARED PREFERENCE
     public static final String SHARED_PREFERENCE_KEY = "SHARED_PREFERENCE_KEY";
     public static final String DATA_MARS_IMAGES = "DATA_MARS_IMAGES";
+    public static final String DATA_EARTH_IMAGES = "DATA_EARTH_IMAGES";
 
     //  REST API
     public static final String BASE_URL = "https://api.nasa.gov/";
@@ -21,6 +22,12 @@ public class Constants {
     public static final String MARS_IMAGE_SELECT_BUNDLE = "MARS_IMAGE_SELECT_BUNDLE";
     public static final String MARS_IMAGE_LIST_BUNDLE = "MARS_IMAGE_LIST_BUNDLE";
     public static final String MARS_IMAGE_ID_SELECT_BUNDLE = "MARS_IMAGE_ID_SELECT_BUNDLE";
+
+    //    EARTH
+    public static final String EARTH_DATE_BUNDLE = "EARTH_DATE_BUNDLE";
+    public static final String EARTH_IMAGE_SELECT_BUNDLE = "EARTH_IMAGE_SELECT_BUNDLE";
+    public static final String EARTH_IMAGE_LIST_BUNDLE = "EARTH_IMAGE_LIST_BUNDLE";
+    public static final String EARTH_IMAGE_ID_SELECT_BUNDLE = "EARTH_IMAGE_ID_SELECT_BUNDLE";
 
     //   Nasa Library
     public static final String IS_IMAGE_BUNDLE = "IS_IMAGE_BUNDLE";

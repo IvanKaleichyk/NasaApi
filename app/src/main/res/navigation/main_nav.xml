@@ -11,7 +11,11 @@
         tools:layout="@layout/fragment_loading" >
         <action
             android:id="@+id/action_loadingFragment_to_mainMenuFragment"
-            app:destination="@id/mainMenuFragment" />
+            app:destination="@id/mainMenuFragment"
+            app:enterAnim="@anim/go_to_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/go_to_left"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/mainMenuFragment"
@@ -20,13 +24,18 @@
         tools:layout="@layout/fragment_main_menu" >
         <action
             android:id="@+id/action_mainMenuFragment_to_marsFragment"
-            app:destination="@id/marsFragment" />
+            app:destination="@id/marsFragment"
+            app:enterAnim="@anim/go_to_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/go_to_left"
+            app:popExitAnim="@anim/fade_out"/>
         <action
             android:id="@+id/action_mainMenuFragment_to_earthImagesFragment"
-            app:destination="@id/earthImagesFragment" />
-        <action
-            android:id="@+id/action_mainMenuFragment_to_chooseNasaImageFragment"
-            app:destination="@id/chooseNasaImageFragment" />
+            app:destination="@id/earthImagesFragment"
+            app:enterAnim="@anim/go_to_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/go_to_left"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/marsFragment"
@@ -35,13 +44,25 @@
         tools:layout="@layout/fragment_mars_select_camera" >
         <action
             android:id="@+id/action_marsFragment_to_marsImagesFragment"
-            app:destination="@id/marsImagesFragment" />
+            app:destination="@id/marsImagesFragment"
+            app:enterAnim="@anim/go_to_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/go_to_left"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/earthImagesFragment"
         android:name="com.koleychik.nasaapi.ui.screens.earthImages.EarthImagesFragment"
         android:label="fragment_earth_images"
-        tools:layout="@layout/fragment_earth_images" />
+        tools:layout="@layout/fragment_earth_images" >
+        <action
+            android:id="@+id/action_earthImagesFragment_to_showEarthImageFragment"
+            app:destination="@id/showEarthImageFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+    </fragment>
     <fragment
         android:id="@+id/marsImagesFragment"
         android:name="com.koleychik.nasaapi.ui.screens.mars.MarsImagesFragment"
@@ -49,7 +70,11 @@
         tools:layout="@layout/fragment_mars_images" >
         <action
             android:id="@+id/action_marsImagesFragment_to_showImageFragment"
-            app:destination="@id/showImageFragment" />
+            app:destination="@id/showImageFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/showImageFragment"
@@ -61,17 +86,8 @@
             app:argType="string" />
     </fragment>
     <fragment
-        android:id="@+id/chooseNasaImageFragment"
-        android:name="com.koleychik.nasaapi.ui.screens.nasaImages.ChooseNasaImageFragment"
-        android:label="fragment_choose_image"
-        tools:layout="@layout/fragment_choose_image" >
-        <action
-            android:id="@+id/action_chooseNasaImageFragment_to_showNasaLibraryFragment"
-            app:destination="@id/showNasaLibraryFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/showNasaLibraryFragment"
-        android:name="com.koleychik.nasaapi.ui.screens.nasaImages.ShowNasaLibraryFragment"
-        android:label="fragment_show_nasa_library"
-        tools:layout="@layout/fragment_show_nasa_library" />
+        android:id="@+id/showEarthImageFragment"
+        android:name="com.koleychik.nasaapi.ui.screens.earthImages.ShowEarthImageFragment"
+        android:label="fragment_show_earth_image"
+        tools:layout="@layout/fragment_show_earth_image" />
 </navigation>

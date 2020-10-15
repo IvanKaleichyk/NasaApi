@@ -36,6 +36,7 @@ class EarthImagesAdapter : RecyclerView.Adapter<EarthImagesAdapter.MainViewHolde
 
     fun submitList(newList: List<EarthImageModel>) {
         sortedList.clear()
+        Log.d(Constants.TAG, "list.size = ${newList.size}")
         sortedList.addAll(newList)
     }
 
@@ -62,10 +63,10 @@ class EarthImagesAdapter : RecyclerView.Adapter<EarthImagesAdapter.MainViewHolde
     inner class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(model: EarthImageModel) {
-            Log.d(Constants.TAG, "bind model.earth_date = ${model.image}")
             itemView.description.text = model.caption
-//            Glide.with(itemView.context).load(model.img_src).into(itemView.image)
-            itemView.image.load(model.image)
+            itemView.image.load(model.image){
+                placeholder(R.drawable.image_placeholder)
+            }
 
             Log.d(Constants.TAG, "model.img_src = ${model.image}")
 
@@ -79,10 +80,10 @@ class EarthImagesAdapter : RecyclerView.Adapter<EarthImagesAdapter.MainViewHolde
             )
 
             val bundle = Bundle()
-            bundle.putParcelableArrayList(Constants.MARS_IMAGE_LIST_BUNDLE, getArrayList())
-            bundle.putString(Constants.IMAGE_BUNDLE, model.image)
+            bundle.putParcelableArrayList(Constants.EARTH_IMAGE_LIST_BUNDLE, getArrayList())
+            bundle.putString(Constants.EARTH_IMAGE_ID_SELECT_BUNDLE, model.identifier)
             Navigation.findNavController(itemView).navigate(
-                R.id.action_marsImagesFragment_to_showImageFragment,
+                R.id.action_earthImagesFragment_to_showEarthImageFragment,
                 bundle,
                 null,
                 extras

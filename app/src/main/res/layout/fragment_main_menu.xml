@@ -22,19 +22,6 @@
         style="@style/mainBtnStyle"
         android:text="@string/mars_rover_photos"
         android:layout_margin="@dimen/extraSmallMargin"/>
-
-    <Button
-        android:id="@+id/nasaImages"
-        style="@style/mainBtnStyle"
-        android:text="@string/NASA_Images"
-        android:layout_margin="@dimen/extraSmallMargin"/>
-
-    <Button
-        android:id="@+id/nasaVideo"
-        style="@style/mainBtnStyle"
-        android:text="@string/NASA_Video"
-        android:layout_margin="@dimen/extraSmallMargin"/>
-
     <Button
         android:id="@+id/earthImages"
         style="@style/mainBtnStyle"

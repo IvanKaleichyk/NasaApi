@@ -15,9 +15,9 @@ class NumberPickerUtils {
             )
         }
 
-        fun getList(minValue : Int, maxValue : Int): Array<String>{
+        fun getList(minValue: Int, maxValue: Int): Array<String> {
             val list = mutableListOf<String>()
-            for ( i in (minValue..maxValue)){
+            for (i in (minValue..maxValue)) {
                 list.add(i.toString())
             }
             return list.toTypedArray()

@@ -46,20 +46,6 @@ class GetDateModel {
             }
             return DateModel(day = day, month = arr[1], year = year)
         }
-
-        private fun check31Date(month: Int, year: Int): String {
-            val setMonthWith31Day = setOf(1, 3, 5, 7, 8, 10, 12)
-            when {
-                setMonthWith31Day.contains(month) -> "31"
-                month == 2 -> {
-                    return if ((year - 2016) % 4 == 0) "29"
-                    else "28"
-                }
-                else -> return "30"
-            }
-            return "30"
-        }
-
     }
 
 }
