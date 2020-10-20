@@ -63,7 +63,6 @@ class EarthImagesAdapter : RecyclerView.Adapter<EarthImagesAdapter.MainViewHolde
     inner class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(model: EarthImageModel) {
-            itemView.description.text = model.caption
             itemView.image.load(model.image){
                 placeholder(R.drawable.image_placeholder)
             }

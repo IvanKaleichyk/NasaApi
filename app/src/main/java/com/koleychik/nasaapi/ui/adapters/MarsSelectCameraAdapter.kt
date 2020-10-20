@@ -1,6 +1,7 @@
 package com.koleychik.nasaapi.ui.adapters
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +24,10 @@ class MarsSelectCameraAdapter : RecyclerView.Adapter<MarsSelectCameraAdapter.Mai
             object : SortedListAdapterCallback<CameraModel>(this) {
                 override fun compare(o1: CameraModel, o2: CameraModel) = 1
 
-                override fun areContentsTheSame(oldItem: CameraModel, newItem: CameraModel): Boolean =
+                override fun areContentsTheSame(
+                    oldItem: CameraModel,
+                    newItem: CameraModel
+                ): Boolean =
                     oldItem.fullName == newItem.fullName
 
                 override fun areItemsTheSame(item1: CameraModel, item2: CameraModel): Boolean =
@@ -35,6 +39,7 @@ class MarsSelectCameraAdapter : RecyclerView.Adapter<MarsSelectCameraAdapter.Mai
         sortedList.clear()
         sortedList.addAll(newList)
     }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -60,10 +65,13 @@ class MarsSelectCameraAdapter : RecyclerView.Adapter<MarsSelectCameraAdapter.Mai
             itemView.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString(Constants.MARS_CAMERA_BUNDLE, model.abbreviation)
-                Navigation.findNavController(itemView).navigate(
-                    R.id.action_marsFragment_to_marsImagesFragment,
-                    bundle
-                )
+                try {
+                    Navigation.findNavController(itemView).navigate(
+                        R.id.action_marsFragment_to_marsImagesFragment,
+                        bundle
+                    )
+                } catch (e : Exception) {
+                    Log.d(Constants.TAG, "Exception = ${e.message}")}
             }
         }
 

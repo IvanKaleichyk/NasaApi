@@ -3,20 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/loadingFragment">
-    <fragment
-        android:id="@+id/loadingFragment"
-        android:name="com.koleychik.nasaapi.ui.screens.choose.LoadingFragment"
-        android:label="fragment_loading"
-        tools:layout="@layout/fragment_loading" >
-        <action
-            android:id="@+id/action_loadingFragment_to_mainMenuFragment"
-            app:destination="@id/mainMenuFragment"
-            app:enterAnim="@anim/go_to_right"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/go_to_left"
-            app:popExitAnim="@anim/fade_out"/>
-    </fragment>
+    app:startDestination="@id/mainMenuFragment">
     <fragment
         android:id="@+id/mainMenuFragment"
         android:name="com.koleychik.nasaapi.ui.screens.choose.MainMenuFragment"
@@ -54,7 +41,7 @@
         android:id="@+id/earthImagesFragment"
         android:name="com.koleychik.nasaapi.ui.screens.earthImages.EarthImagesFragment"
         android:label="fragment_earth_images"
-        tools:layout="@layout/fragment_earth_images" >
+        tools:layout="@layout/fragment_mars_images" >
         <action
             android:id="@+id/action_earthImagesFragment_to_showEarthImageFragment"
             app:destination="@id/showEarthImageFragment"
@@ -89,5 +76,5 @@
         android:id="@+id/showEarthImageFragment"
         android:name="com.koleychik.nasaapi.ui.screens.earthImages.ShowEarthImageFragment"
         android:label="fragment_show_earth_image"
-        tools:layout="@layout/fragment_show_earth_image" />
+        tools:layout="@layout/fragment_show_image" />
 </navigation>

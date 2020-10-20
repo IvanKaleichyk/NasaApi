@@ -71,7 +71,6 @@ class MarsImageAdapter : RecyclerView.Adapter<MarsImageAdapter.MainViewHolder>()
 
         fun bind(model: MarsImageModel) {
             Log.d(Constants.TAG, "bind model.earth_date = ${model.earth_date}")
-            itemView.description.text = model.earth_date
             itemView.image.load(model.img_src){
                 placeholder(R.drawable.image_placeholder)
             }

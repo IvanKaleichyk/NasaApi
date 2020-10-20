@@ -1,33 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.screens.choose.MainMenuFragment">
+    tools:context=".ui.screens.choose.MainMenuFragment"
+    android:background="@color/colorMainBackground">
 
-    <VideoView
-        android:id="@+id/video"
-        android:layout_width="400dp"
-        android:layout_height="700dp"
-        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/satellite_icon128"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_astronaut"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_observatory_svg"
+        android:layout_marginStart="@dimen/mainMargin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical"
-        android:gravity="center">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/marsImages"
-        style="@style/mainBtnStyle"
-        android:text="@string/mars_rover_photos"
-        android:layout_margin="@dimen/extraSmallMargin"/>
-    <Button
-        android:id="@+id/earthImages"
-        style="@style/mainBtnStyle"
-        android:text="@string/earth_image"
-        android:layout_margin="@dimen/extraSmallMargin"/>
+        <Button
+            android:id="@+id/marsImages"
+            style="@style/mainBtnStyle"
+            android:layout_margin="@dimen/extraSmallMargin"
+            android:text="@string/mars_rover_photos" />
+
+        <Button
+            android:id="@+id/earthImages"
+            style="@style/mainBtnStyle"
+            android:layout_margin="@dimen/extraSmallMargin"
+            android:text="@string/earth_image" />
 
     </LinearLayout>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
