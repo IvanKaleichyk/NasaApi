@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.screens.choose.MainMenuFragment"
+    android:id="@+id/mainLL"
     android:background="@color/colorMainBackground">
 
     <ImageView
+        android:id="@+id/image3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/satellite_icon128"
@@ -17,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/image1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_astronaut"
@@ -24,6 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
+        android:id="@+id/image2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_observatory_svg"

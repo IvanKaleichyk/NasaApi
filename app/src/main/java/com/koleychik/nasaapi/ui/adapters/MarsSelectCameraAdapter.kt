@@ -59,7 +59,6 @@ class MarsSelectCameraAdapter : RecyclerView.Adapter<MarsSelectCameraAdapter.Mai
     class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(model: CameraModel) {
-            itemView.description.visibility = View.GONE
             itemView.text.text = model.fullName
 
             itemView.setOnClickListener {
